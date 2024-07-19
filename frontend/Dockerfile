@@ -1,13 +1,14 @@
 FROM node:latest
 
 WORKDIR /usr/src/app
+RUN chmod 777 /usr/src/app -R
+#RUN npm install -g react-scripts
 
-RUN npm install -g react-scripts
+#RUN chown -Rh node:node /usr/src/app
 
-RUN chown -Rh node:node /usr/src/app
-
-USER node
+#
+#USER node
 
 EXPOSE 3000
 
-CMD [ "sh", "-c", "npm install && npm audit fix --force && npm run start" ]
+CMD [ "sh", "-c", "npm install -g react-scripts && npm audit fix --force && npm run start" ]
