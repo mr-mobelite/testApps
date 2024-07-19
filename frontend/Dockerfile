@@ -2,7 +2,7 @@
 
 # Les insctructions sont les mêmes que pour le Dockerfile de l'API REST, sauf pour le port d'écoute qui change.
 
-FROM node:latest-alpine
+FROM node:latest
 
 WORKDIR /usr/src/app
 

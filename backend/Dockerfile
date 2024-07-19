@@ -2,7 +2,7 @@
 
 # Image node choisie avec la version.
 
-FROM node:latest-alpine
+FROM node:latest
 
 # On se met dans l'emplacement où se trouve nos données de service.
 
@@ -14,7 +14,7 @@ COPY package.json ./package.json
 
 # Lancement du service npm (qui est une dépendance dans l'image node js).
 
-RUN npm install
+RUN npm install --save cors apollo-server-express express graphql@14 reflect-metadata type-graphql@0 apollo-datasource-rest soap jsonwebtoken --legacy-peer-deps
 
 # Copie du répertoire courant dans le répertoire actuel.
 
