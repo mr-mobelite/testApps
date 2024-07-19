@@ -1,17 +1,13 @@
-# Dockerfile pour le REACT JS (FRONTEND)
-
-# Les insctructions sont les mêmes que pour le Dockerfile de l'API REST, sauf pour le port d'écoute qui change.
-
 FROM node:latest
 
 WORKDIR /usr/src/app
 
-COPY package.json ./package.json
+RUN npm install -g react-scripts
 
-RUN npm install
+RUN chown -Rh node:node /usr/src/app
 
-COPY . .
+USER node
 
 EXPOSE 3000
 
-CMD [ "npm", "start" ]
+CMD [ "sh", "-c", "npm install && npm audit fix --force && npm run start" ]
